@@ -7,6 +7,7 @@ const Stats=(props)=>{
     const totalScore = props.totalPlayers.reduce((acc, cur)=>{
         return acc+cur.score
     },0);
+
     return(
         <table className="stats">
             <tbody>
@@ -22,4 +23,5 @@ const Stats=(props)=>{
         </table>
     );
 }
+
 export default Stats;

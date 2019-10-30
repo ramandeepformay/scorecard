@@ -3,9 +3,6 @@ import React from "react";
 import Counter from "./Counter";
 // player component accepting all the props through player jsx tag
 const Player = (props) => {
-
-
-
     return (
       <div className="player">
         <span className="player-name">
@@ -15,11 +12,11 @@ const Player = (props) => {
         </span>
           {/* sending score props to counter component */}
         <Counter 
-        score={props.score}
-        changeScore={props.changeScore}
-        index={props.index}
+          score={props.score}
+          changeScore={props.changeScore}
+          index={props.index}
         />
       </div>
     );
-  }
-  export default Player;
+}
+export default Player;

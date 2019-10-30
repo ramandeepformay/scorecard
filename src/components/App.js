@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 //importing Header and Player component
 import Header from "./Header";
 import Player from "./Player";
+import AddPlayerForm from "./AddPlayerForm"
 // Main app component
 class App extends Component {
   // players state containing name of the player, its score as well as id for the key
@@ -43,8 +44,24 @@ class App extends Component {
         score: prevState.players[index].score += delta
       }));
   }
+  // setting counter value
+  prevId = 5;
 
- 
+  //adding new player 
+  newPlayerHandler=(name)=>{
+    this.setState((prevState)=>{
+      return{
+        players:[
+          ...prevState.players,
+          {
+            //  name:name or name both are same
+          name,
+          score:0,
+          id:this.prevId+=1
+        }]
+      }
+    })
+  } 
   render() {
     return (
       <div className="scoreboard">
@@ -66,6 +83,8 @@ class App extends Component {
             index={index}           
           />
         )}
+        {/* adding add player componnent */}
+        <AddPlayerForm addPlayer={this.newPlayerHandler}/>
       </div>
     );
   }
