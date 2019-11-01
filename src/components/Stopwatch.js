@@ -40,22 +40,29 @@ class Stopwatch extends Component{
     resetHandler=()=>{
         this.setState({elapsedTime:0})
     }
+
+    // component unmounting method
+    componentWillUnmount(){
+        // clearing time interval to prevent memory leak
+        clearInterval(this.intervalId);
+    }
+
     render(){
         /* using ternary opeartor changing text of button */
         const seconds = Math.floor(this.state.elapsedTime/1000);
         // ternary operator for toggling start and stop ui
         const handler =this.state.isRunning?"Stop":"Start"
-    return(
-        <div className="stopwatch">
-            <h2>Stopwatch</h2>
-            <span className="stopwatch-time">
-                {seconds}
-            </span>
-            <button onClick={this.toggleHandler}>
-                {handler}
-            </button> 
-            <button onClick={this.resetHandler}>Reset</button>
-        </div> 
+        return(
+            <div className="stopwatch">
+                <h2>Stopwatch</h2>
+                <span className="stopwatch-time">
+                    {seconds}
+                </span>
+                <button onClick={this.toggleHandler}>
+                    {handler}
+                </button> 
+                <button onClick={this.resetHandler}>Reset</button>
+            </div> 
         );
     }
 }

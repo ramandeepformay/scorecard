@@ -17,7 +17,7 @@ class AddPlayerForm extends Component{
         // stopping the dafault behaviour of the browser
         e.preventDefault();
         // passing the current value of input  using add player prop
-        // adding only when calue is not empty
+        // adding only when value is not empty
         if(this.state.value!== ""){
             this.props.addPlayer(this.state.value);
         }
