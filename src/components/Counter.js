@@ -1,7 +1,9 @@
 import React from "react";
+
 // counter component
 const Counter =(props)=> {  
     let index=props.index;
+    
       return (
         <div className="counter">
         {/* change score functionality using changeScoreHandler */}

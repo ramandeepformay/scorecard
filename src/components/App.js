@@ -6,6 +6,8 @@ import AddPlayerForm from "./AddPlayerForm"
 // Main app component
 class App extends Component {
   // players state containing name of the player, its score as well as id for the key
+
+  
   state = {
     players: [
       {
@@ -62,7 +64,22 @@ class App extends Component {
       }
     })
   } 
+  // calculate highest score
+  highestScoreHandler =()=>{
+    // ruuning through all the scores using map method
+    const scores = this.state.players.map(p=>p.score);
+    // using Math.max will return high score
+    const highScore = Math.max(...scores);
+    // if we have high score then return it 
+    if(highScore){
+      return highScore;
+    }
+    else{
+      return  null;
+    }
+  }
   render() {
+    
     return (
       <div className="scoreboard">
       {/* header component */}
@@ -80,7 +97,9 @@ class App extends Component {
             key={player.id.toString()} 
             removePlayer={this.removePlayerHandler}
             changeScore={this.scoreChangeHandler}
-            index={index}           
+            index={index}
+            // checking if high score handler is equal to actual score if it does then it's true
+            highScore = {this.highestScoreHandler()=== player.score}          
           />
         )}
         {/* adding add player componnent */}

@@ -2,6 +2,8 @@ import React,{Component} from "react";
 
 class AddPlayerForm extends Component{
     // initalizing the value as an emplty literal
+    playerInput = React.createRef();
+  
     state={
         value:""
     };
@@ -28,6 +30,7 @@ class AddPlayerForm extends Component{
     }
 
     render(){
+        console.log(this.playerInput);
         return(
             // calling on submit event to add player
             <form onSubmit={this.handleSubmit}>
@@ -37,6 +40,7 @@ class AddPlayerForm extends Component{
                     value={this.state.value}
                     onChange={this.handleValueChange}
                     placeholder="Enter Players's Name"
+                    ref={this.playerInput}
                 />
                 <input
                     type="submit"
