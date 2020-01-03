@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 //importing Header and Player component
+import {Provider} from "./Context";
 import Header from "./Header";
 import Player from "./Player";
 import AddPlayerForm from "./AddPlayerForm"
@@ -81,6 +82,7 @@ class App extends Component {
   render() {
     
     return (
+      <Provider value ={this.state.players}>
       <div className="scoreboard">
       {/* header component */}
         <Header 
@@ -105,6 +107,7 @@ class App extends Component {
         {/* adding add player componnent */}
         <AddPlayerForm addPlayer={this.newPlayerHandler}/>
       </div>
+      </Provider>
     );
   }
 }
