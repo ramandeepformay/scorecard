@@ -8,11 +8,9 @@ const Player = (props) => {
       <div className="player">
 
         <span className="player-name">
-        {/* using callback function and thropugh remove player prop removving the player */}
+        {/* using callback function and through remove player prop removing the player */}
           <button className="remove-player" onClick={() => props.removePlayer(props.id)}>✖</button>
-        <Icon score={props.score}
-          highScore = {props.highScore}
-        />
+        <Icon highScore = {props.highScore}/>
           { props.name }
         </span>
           {/* sending score props to counter component */}

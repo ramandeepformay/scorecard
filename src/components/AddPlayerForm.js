@@ -21,8 +21,10 @@ class AddPlayerForm extends Component{
         // passing the current value of input  using add player prop
         // adding only when value is not empty
         if(this.state.value!== ""){
-            this.props.addPlayer(this.state.value);
+            this.props.addPlayer(this.playerInput.current.value);
+           
         }
+            
         // after addition clearing out the input 
         this.setState({
             value:""
